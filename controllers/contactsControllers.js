@@ -59,11 +59,7 @@ export const updateContact = async (req, res, next) => {
     if (!resultId) {
       throw HttpError(404);
     }
-    const result = await updateById(id, {
-      name: name || resultId.name,
-      email: email || resultId.email,
-      phone: phone || resultId.phone,
-    });
+    const result = await updateById(id, { name, email, phone });
     if (!result) {
       throw HttpError(404);
     }
